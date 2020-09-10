@@ -41,6 +41,11 @@ pipeline {
         sh "docker image rm ${DOCKER_IMAGE}:latest"
       }
     }
+    stage("build") { 
+        withCredentials([sshKey(credentialsId: 'ssh-key', , sshKeyVariable: 'SSH_KEY')]) {
+            sh "ssh -i $SSH_KEY jenkins@123.232.232.23 './deploy.sh'"
+        }
+    }    
   }
 
   post {
