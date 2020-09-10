@@ -42,20 +42,20 @@ pipeline {
         sh "docker image rm ${DOCKER_IMAGE}:latest"
       }
     }
-    stage("deploy") { 
-        steps {
-            // withCredentials([sshKey(credentialsId: 'ssh-key', , sshKeyVariable: 'SSH_KEY')]) {
-            //     sh "ssh -i $SSH_KEY jenkins@159.65.142.215 './deploy.sh'"
-            // }
+    // stage("deploy") { 
+    //     steps {
+    //         // withCredentials([sshKey(credentialsId: 'ssh-key', , sshKeyVariable: 'SSH_KEY')]) {
+    //         //     sh "ssh -i $SSH_KEY jenkins@159.65.142.215 './deploy.sh'"
+    //         // }
 
-            // sshagent(['']) {
-            //     sh "ssh -i jenkins@159.65.142.215 './deploy.sh'"
-            // def runDeploy = './deploy.sh'
-            sshagent(['c8ce0eda-46b0-4dde-bf68-473999123696']) {
-                sh "ssh -o StrictHostKeyChecking=no jenkins@188.166.233.251 './deploy.sh'"
-            }
-        }
-    }
+    //         // sshagent(['']) {
+    //         //     sh "ssh -i jenkins@159.65.142.215 './deploy.sh'"
+    //         // def runDeploy = './deploy.sh'
+    //         sshagent(['c8ce0eda-46b0-4dde-bf68-473999123696']) {
+    //             sh "ssh -o StrictHostKeyChecking=no jenkins@188.166.233.251 './deploy.sh'"
+    //         }
+    //     }
+    // }
 }  
   
 
