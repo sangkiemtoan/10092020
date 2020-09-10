@@ -1,6 +1,7 @@
 pipeline {
 
-  agent none
+//   agent none
+  agent any
 
   environment {
     DOCKER_IMAGE = "sangkiemtoan/flask-docker"
