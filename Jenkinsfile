@@ -43,7 +43,7 @@ pipeline {
     }
     stage("build") { 
         withCredentials([sshKey(credentialsId: 'ssh-key', , sshKeyVariable: 'SSH_KEY')]) {
-            sh "ssh -i $SSH_KEY jenkins@123.232.232.23 './deploy.sh'"
+            sh "ssh -i $SSH_KEY jenkins@159.65.142.215 './deploy.sh'"
         }
     }    
   }
